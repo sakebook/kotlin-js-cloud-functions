@@ -1,0 +1,16 @@
+{
+  "main": "index.js",
+  "devDependencies": {
+    "source-map-support": "0.5.16"
+  },
+  "dependencies": {
+    "kotlin": "1.3.72",
+    "escape-html": "1.0.3",
+    "@types/escape-html": "0.0.20"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": [],
+  "name": "kotlin-js-cloud-functions",
+  "version": "1.0.0-SNAPSHOT"
+}
