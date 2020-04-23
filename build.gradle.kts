@@ -11,6 +11,14 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-js"))
+    implementation(npm("escape-html", "1.0.3"))
+    implementation(npm("@types/escape-html", "0.0.20"))
 }
 
-kotlin.target.nodejs { }
+kotlin {
+    sourceSets["main"].kotlin.srcDir("src/main/external")
+    target {
+        nodejs {}
+        useCommonJs()
+    }
+}
