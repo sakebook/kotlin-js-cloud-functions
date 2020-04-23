@@ -22,3 +22,18 @@ kotlin {
         useCommonJs()
     }
 }
+
+tasks {
+    val packaging by creating(Copy::class) {
+        from("build/js/packages/${project.name}/kotlin/${project.name}.js", "build/js/packages/${project.name}/package.json")
+        into("functions")
+        rename { it.replace("${project.name}.js", "index.js") }
+
+        doLast {
+            val jsonFile = file("functions/package.json")
+            val texts = jsonFile.readLines()
+                .map { it.replace("kotlin/${project.name}.js", "index.js") }
+            jsonFile.writeText(texts.joinToString("\n"))
+        }
+    }
+}
